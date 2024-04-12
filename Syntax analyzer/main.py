@@ -136,6 +136,9 @@ for v in Tokens:
     print(v)
 
 def calculate_currency(input,output,value):
+    input = input.upper()
+    output = output.upper()
+    
     return value * dict_divisas[input][output]
 
 

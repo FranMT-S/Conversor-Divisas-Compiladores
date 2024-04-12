@@ -189,5 +189,11 @@ while True:
     dict["position"] = tok.lexpos 
     Tokens.append(dict)
     
-print(Tokens)
+for v in Tokens:
+    print(v)
 
+def calculate_currency(input,output,value):
+    return value * dict_divisas[input][output]
+
+
+print(calculate_currency("DOLARES","LEMPIRAS",2))

@@ -196,4 +196,4 @@ def calculate_currency(input,output,value):
     return value * dict_divisas[input][output]
 
 
-print(calculate_currency("LEMPIRAS","DOLARES",3))
+print(calculate_currency("DOLARES","LEMPIRAS",2))

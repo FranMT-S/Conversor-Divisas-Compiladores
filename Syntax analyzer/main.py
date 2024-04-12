@@ -1,5 +1,7 @@
 from ply.lex import lex
 from ply.yacc import yacc
+from src.core.divisas import dict_divisas
+
 import re
 
 """from src import *
@@ -22,88 +24,6 @@ import re"""
 tokens = ( 'DOLARES', 'EUROS', 'LEMPIRAS', 'QUETZAL', 'LIBRASESTERLINA', 'BALBOAS',
            'YEN', 'RUPIAS', 'NUMBER')
 
-dict_divisas = {
-    "DOLARES": {
-        "DOLARES" : 1,
-        "EUROS" : 0,
-        "LEMPIRAS" : 0,
-        "QUETZAL" : 0,
-        "LIBRASESTERLINA" : 0,
-        "BALBOAS" : 0,
-        "YEN" : 0,
-        "RUPIAS" : 0
-    },
-    "EUROS": {
-        "DOLARES" : 0,
-        "EUROS" : 1,
-        "LEMPIRAS" : 0,
-        "QUETZAL" : 0,
-        "LIBRASESTERLINA" : 0,
-        "BALBOAS" : 0,
-        "YEN" : 0,
-        "RUPIAS" : 0
-    },
-    "LEMPIRAS": {
-        "DOLARES" : 0,
-        "EUROS" : 0,
-        "LEMPIRAS" : 1,
-        "QUETZAL" : 0,
-        "LIBRASESTERLINA" : 0,
-        "BALBOAS" : 0,
-        "YEN" : 0,
-        "RUPIAS" : 0
-    },
-    "QUETZAL": {
-        "DOLARES" : 0,
-        "EUROS" : 0,
-        "LEMPIRAS" : 0,
-        "QUETZAL" : 1,
-        "LIBRASESTERLINA" : 0,
-        "BALBOAS" : 0,
-        "YEN" : 0,
-        "RUPIAS" : 0
-    },
-    "LIBRASESTERLINA": {
-        "DOLARES" : 0,
-        "EUROS" : 0,
-        "LEMPIRAS" : 0,
-        "QUETZAL" : 0,
-        "LIBRASESTERLINA" : 1,
-        "BALBOAS" : 0,
-        "YEN" : 0,
-        "RUPIAS" : 0
-    },
-    "BALBOAS": {
-        "DOLARES" : 0,
-        "EUROS" : 0,
-        "LEMPIRAS" : 0,
-        "QUETZAL" : 0,
-        "LIBRASESTERLINA" : 0,
-        "BALBOAS" : 1,
-        "YEN" : 0,
-        "RUPIAS" : 0
-    },
-    "YEN": {
-        "DOLARES" : 0,
-        "EUROS" : 0,
-        "LEMPIRAS" : 0,
-        "QUETZAL" : 0,
-        "LIBRASESTERLINA" : 0,
-        "BALBOAS" : 0,
-        "YEN" : 1,
-        "RUPIAS" : 0
-    },
-    "RUPIAS": {
-        "DOLARES" : 0,
-        "EUROS" : 0,
-        "LEMPIRAS" : 0,
-        "QUETZAL" : 0,
-        "LIBRASESTERLINA" : 0,
-        "BALBOAS" : 0,
-        "YEN" : 0,
-        "RUPIAS" : 1
-    }
-}
 
 
 # Ignored characters

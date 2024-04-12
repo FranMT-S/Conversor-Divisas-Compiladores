@@ -12,8 +12,8 @@ dict_divisas = {
     },
 
     "EUROS": {
-        "DOLARES" : 1,
-        "EUROS" : 1.06,
+        "DOLARES" : 1.06,
+        "EUROS" : 1,
         "LEMPIRAS" : 26.27,
         "QUETZAL" : 8.29,
         "LIBRASESTERLINA" : 23.54,

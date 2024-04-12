@@ -144,3 +144,30 @@ def calculate_currency(input,output,value):
 
 print(calculate_currency("EUROS","LEMPIRAS",1))
 
+
+import pydot
+
+# Crear el gráfico
+graph = pydot.Dot(graph_type='graph')
+
+# Crear los nodos
+node_2 = pydot.Node("2", shape="circle")
+node_multiply = pydot.Node("*", shape="circle")
+node_4 = pydot.Node("4", shape="circle")
+node_plus = pydot.Node("+", shape="circle")
+
+# Conectar los nodos
+graph.add_edge(pydot.Edge(node_2, node_multiply))
+graph.add_edge(pydot.Edge(node_2, node_4))
+graph.add_edge(pydot.Edge(node_2, node_plus))
+
+# Agregar el gráfico
+graph.add_node(node_2)
+graph.add_node(node_multiply)
+graph.add_node(node_4)
+graph.add_node(node_plus)
+
+# Guardar el gráfico como imagen PNG
+graph.write_png("arbol_sintactico.png")
+
+

@@ -6,4 +6,6 @@ class SyntaxAnalizer:
     
     def token_ignore_newline(self,token:str) -> str:
         print(str(token) + " test")
+
+    
     

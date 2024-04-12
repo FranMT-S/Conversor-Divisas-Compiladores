@@ -15,11 +15,11 @@ dict_divisas = {
         "DOLARES" : 1.06,
         "EUROS" : 1,
         "LEMPIRAS" : 26.27,
-        "QUETZAL" : 8.29,
-        "LIBRASESTERLINA" : 23.54,
-        "BALBOAS" : 1.25,
-        "YEN" : 190.85,
-        "RUPIAS" : 104.14
+        "QUETZAL" : 8.28,
+        "LIBRASESTERLINA" : 0.85,
+        "BALBOAS" : 1.06,
+        "YEN" : 163.02,
+        "RUPIAS" : 88.96
     },
 
     "LEMPIRAS": {
@@ -76,7 +76,7 @@ dict_divisas = {
         "YEN" : 1,
         "RUPIAS" : 0.55
     },
-    
+
     "RUPIAS": {
         "DOLARES" : 0.012,
         "EUROS" : 0.011,

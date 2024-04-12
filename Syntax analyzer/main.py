@@ -29,15 +29,6 @@ tokens = ( 'DOLARES', 'EUROS', 'LEMPIRAS', 'QUETZAL', 'LIBRASESTERLINA', 'BALBOA
 # Ignored characters
 t_ignore = ' \t'
 
-# Token matching rules are written as regexs
-# t_PLUS = r'\+'
-# t_MINUS = r'-'
-# t_TIMES = r'\*'
-# t_DIVIDE = r'/'
-# t_LPAREN = r'\('
-# t_RPAREN = r'\)'
-# t_NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
-
 #Token para la conversion de divisas
 t_DOLARES = r"dolares"
 t_EUROS = r"euros" 
@@ -54,13 +45,6 @@ def t_NUMBER(t):
     r'\d+'
     t.value = float(t.value)
     return t
-
-
-# Ignored token with an action associated with it
-# def t_ignore_newline(t):
-#     r'\n+'
-#     t.lexer.lineno += t.value.count('\n')
-
 
 # Error handler for illegal characters
 def t_error(t):
@@ -116,47 +100,6 @@ def p_term(p):
     term : NUMBER
     '''
     p[0] = p[1]
-    
-
-
-
-# def p_term(p):
-#     '''
-#     term : factor TIMES factor
-#          | factor DIVIDE factor
-#     '''
-#     p[0] = ('binop', p[2], p[1], p[3])
-
-# def p_term_factor(p):
-#     '''
-#     term : factor
-#     '''
-#     p[0] = p[1]
-
-# def p_factor_number(p):
-#     '''
-#     factor : NUMBER
-#     '''
-#     p[0] = ('number', p[1])
-
-# def p_factor_name(p):
-#     '''
-#     factor : NAME
-#     '''
-#     p[0] = ('name', p[1])
-
-# def p_factor_unary(p):
-#     '''
-#     factor : PLUS factor
-#            | MINUS factor
-#     '''
-#     p[0] = ('unary', p[1], p[2])
-
-# def p_factor_grouped(p):
-#     '''
-#     factor : LPAREN expression RPAREN
-#     '''
-#     p[0] = ('grouped', p[2])
 
 def p_error(p):
     print(f'Syntax error at {p.value!r}')
@@ -196,4 +139,5 @@ def calculate_currency(input,output,value):
     return value * dict_divisas[input][output]
 
 
-print(calculate_currency("DOLARES","LEMPIRAS",2))
+print(calculate_currency("EUROS","LEMPIRAS",1))
+

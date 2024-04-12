@@ -13,11 +13,97 @@ import re"""
 
 
 
+
+
+
 # --- Tokenizer
 
 # All tokens must be named in advance.
 tokens = ( 'DOLARES', 'EUROS', 'LEMPIRAS', 'QUETZAL', 'LIBRASESTERLINA', 'BALBOAS',
            'YEN', 'RUPIAS', 'NUMBER')
+
+dict_divisas = {
+    "DOLARES": {
+        "DOLARES" : 1,
+        "EUROS" : 0,
+        "LEMPIRAS" : 0,
+        "QUETZAL" : 0,
+        "LIBRASESTERLINA" : 0,
+        "BALBOAS" : 0,
+        "YEN" : 0,
+        "RUPIAS" : 0
+    },
+    "EUROS": {
+        "DOLARES" : 0,
+        "EUROS" : 1,
+        "LEMPIRAS" : 0,
+        "QUETZAL" : 0,
+        "LIBRASESTERLINA" : 0,
+        "BALBOAS" : 0,
+        "YEN" : 0,
+        "RUPIAS" : 0
+    },
+    "LEMPIRAS": {
+        "DOLARES" : 0,
+        "EUROS" : 0,
+        "LEMPIRAS" : 1,
+        "QUETZAL" : 0,
+        "LIBRASESTERLINA" : 0,
+        "BALBOAS" : 0,
+        "YEN" : 0,
+        "RUPIAS" : 0
+    },
+    "QUETZAL": {
+        "DOLARES" : 0,
+        "EUROS" : 0,
+        "LEMPIRAS" : 0,
+        "QUETZAL" : 1,
+        "LIBRASESTERLINA" : 0,
+        "BALBOAS" : 0,
+        "YEN" : 0,
+        "RUPIAS" : 0
+    },
+    "LIBRASESTERLINA": {
+        "DOLARES" : 0,
+        "EUROS" : 0,
+        "LEMPIRAS" : 0,
+        "QUETZAL" : 0,
+        "LIBRASESTERLINA" : 1,
+        "BALBOAS" : 0,
+        "YEN" : 0,
+        "RUPIAS" : 0
+    },
+    "BALBOAS": {
+        "DOLARES" : 0,
+        "EUROS" : 0,
+        "LEMPIRAS" : 0,
+        "QUETZAL" : 0,
+        "LIBRASESTERLINA" : 0,
+        "BALBOAS" : 1,
+        "YEN" : 0,
+        "RUPIAS" : 0
+    },
+    "YEN": {
+        "DOLARES" : 0,
+        "EUROS" : 0,
+        "LEMPIRAS" : 0,
+        "QUETZAL" : 0,
+        "LIBRASESTERLINA" : 0,
+        "BALBOAS" : 0,
+        "YEN" : 1,
+        "RUPIAS" : 0
+    },
+    "RUPIAS": {
+        "DOLARES" : 0,
+        "EUROS" : 0,
+        "LEMPIRAS" : 0,
+        "QUETZAL" : 0,
+        "LIBRASESTERLINA" : 0,
+        "BALBOAS" : 0,
+        "YEN" : 0,
+        "RUPIAS" : 1
+    }
+}
 
 
 # Ignored characters
@@ -158,18 +244,30 @@ def p_error(p):
 # Build the parser
 parser = yacc()
 
+cadena = 'euros 30 lempiras'
 # Parse an expression
-ast = parser.parse('EuroS 30 Lempiras')
+ast = parser.parse(cadena)
 print(ast)
            
            
 
+           
 
-lexer.input('lempiras 30 dolares')
+
+lexer.input(cadena)
+
+Tokens = []
 
 while True:
     tok = lexer.token()
-    if not tok: 
+    if not tok:
         break      # No more input
-    print(tok.type, tok.value, tok.lineno, tok.lexpos)
+    dict ={}
+    dict["type"] = tok.type
+    dict["value"] = tok.value
+    dict["line"] = tok.lineno
+    dict["position"] = tok.lexpos 
+    Tokens.append(dict)
+    
+print(Tokens)
 

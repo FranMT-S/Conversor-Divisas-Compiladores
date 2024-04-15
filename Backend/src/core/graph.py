@@ -21,8 +21,8 @@ def drawGraph(tree):
     if(len(tree) != 3):  
         return None
     
-    i = 0
-    root = pydot.Node("expresion", shape="circle")  
+    i = 0 # Labels of nodes
+    root = pydot.Node("expression", shape="circle")  
     for token in tree:
         
         childs.append(createNode(token,i))
@@ -36,7 +36,7 @@ def drawGraph(tree):
         
     
     
-    graph.write_png("tree.png")
+    # graph.write_png("tree.png")
     png_bytes = graph.create(format='png')
 
     

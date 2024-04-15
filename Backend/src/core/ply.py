@@ -35,8 +35,9 @@ def t_NUMBER(t):
 
 # Error handler for illegal characters
 def t_error(t):
-    print(f'Illegal character {t.value[0]!r}')
-    t.lexer.skip(1)
+    raise Exception(f'Illegal character in {t.value}. {t.lexer.lexpos}')
+    # raise Exception(f'Illegal character {t.value[0]!r} {t.lexpos}')
+    # t.lexer.skip(1)
 
 # Write functions for each grammar rule which is
 # specified in the docstring.
@@ -77,7 +78,7 @@ def p_value(p):
 
 
 def p_error(p):
-    print(f'Syntax error at {p.value!r}')
+    raise Exception(f'Syntax error at {p.value!r}')
 
 
 
@@ -90,11 +91,11 @@ def currency_In(input_currency,output_currency):
     
     return dict_currencies[input_currency][output_currency]
 
-def calculate_currency(input,output,value):
-    input = input.upper()
-    output = output.upper()
+def calculate_currency(tree):
+    input = tree[0][1].upper()
+    output = tree[2][1].upper()
     
-    return value * dict_currencies[input][output]
+    return tree[1][1] * dict_currencies[input][output]
 
 
 
@@ -117,14 +118,6 @@ def get_tokens(input):
         tokens.append(dict)
     return tokens
         
-def execute(input):
-    tree = get_tree(input)
-    print(tree)
-    if tree is not None:
-        print(len(tree))
-    else:
-        pass
-
 
 
 

@@ -1,4 +1,4 @@
-dict_divisas = {
+dict_currencies = {
 
     "DOLARES": {
         "DOLARES" : 1,

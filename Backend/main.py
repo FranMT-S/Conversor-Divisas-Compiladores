@@ -46,19 +46,34 @@ def get_currency():
 
 @app.route('/currency/tree', methods=['POST'])
 def get_currency_tree():
-    line = '{} {} {}'.format(request.json['cur_input'],str(request.json['value']),request.json['cur_output'])
-    tree = get_tree(line)
  
-    treeImage = None
+    try:
+        line = f'{request.json['cur_input'].lower()} {request.json['value']} {request.json['cur_output'].lower()}'
+        tree = get_tree(line)
+        treeImage = None
 
-
-
-    if( tree is None):
-        return None
+        if(tree == None):
+            return {
+                "error": "Token Not Founds",
+                "isSuccess": False,
+                "tokens": [],
+                "tree": [],
+            }, 400
+        
+        treeImage = drawGraph(tree)
+        response = make_response(treeImage)
+        response.headers.set('Content-Type', 'image/png')
     
-    treeImage = drawGraph(tree)
-    response = make_response(treeImage)
-    response.headers.set('Content-Type', 'image/png')
+        return response,200
+    except Exception as e:
+        return {
+            "error": f"{e}",
+            "isSuccess": False,
+            "tokens": [],
+            "tree": [],
+        },400
+
+
 
     return response
 

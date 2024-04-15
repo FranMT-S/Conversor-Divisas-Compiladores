@@ -28,9 +28,9 @@ token: {
        }
 ```
 
-`POST /currency`
+`POST /currencies`
 
-    http://localhost:5000/currency
+    http://localhost:5000/currencies
 
 Request
 ```
@@ -44,7 +44,8 @@ Request
 Response
 ```
 {
-    "isSuccess": boolean,
+    Status:200
+    "isSuccess": true,
     "result": number,
     "tokens":token[],
     "tree": [
@@ -64,12 +65,13 @@ Response
 }
 ```
 
-`POST /currency/tree`
+`POST /currencies/tree`
 
-    http://localhost:5000/currency/tree
+    http://localhost:5000/currencies/tree
 
 Request
 ```
+ Status:200
   {
     "cur_input":TokenCurrency,
     "cur_output":TokenCurrency,
@@ -87,7 +89,9 @@ Image
 ```
 
 Errors Response
+
 ```
+  Status:400
   {
       "error": string,
       "isSuccess": false,

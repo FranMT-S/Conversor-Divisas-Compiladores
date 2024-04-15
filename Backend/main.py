@@ -7,7 +7,7 @@ from src.core.graph import drawGraph
 app  = Flask(__name__)
 CORS(app)
 
-@app.route('/currency', methods=['POST'])
+@app.route('/currencies', methods=['POST'])
 def get_currency():
     
     try:
@@ -44,7 +44,7 @@ def get_currency():
         },400
         
 
-@app.route('/currency/tree', methods=['POST'])
+@app.route('/currencies/tree', methods=['POST'])
 def get_currency_tree():
  
     try:

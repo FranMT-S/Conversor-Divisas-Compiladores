@@ -36,6 +36,7 @@ def get_currency():
 
         return res,200
     except Exception as e:
+        print(e)
         return {
             "error": f"{e}",
             "isSuccess": False,
@@ -66,6 +67,7 @@ def get_currency_tree():
     
         return response,200
     except Exception as e:
+        print(e)
         return {
             "error": f"{e}",
             "isSuccess": False,

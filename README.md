@@ -12,9 +12,22 @@ python -m virtualenv venv
 .\venv\scripts\activate
 ```
 # inner virtual enviroment
+
+## Install requeriments
 ```
 pip install -r .\requeriments.txt
 ```
+## Run server
+```
+py main.py
+```
+
+## Error  [WinError 32] \"dod"\
+If you see this error, install Graphviz on a local (global) installation outside of the virtual environment
+```
+pip install graphviz
+```
+
 
 ## Endpoints
 

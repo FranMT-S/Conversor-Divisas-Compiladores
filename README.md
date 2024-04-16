@@ -22,7 +22,7 @@ pip install -r .\requeriments.txt
 py main.py
 ```
 
-## Error  [WinError 32] \"dod"\
+## Error  [WinError 32] \\"dot" \
 If you see this error, install Graphviz on a local (global) installation outside of the virtual environment
 ```
 pip install graphviz

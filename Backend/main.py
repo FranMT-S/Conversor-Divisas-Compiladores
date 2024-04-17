@@ -11,7 +11,7 @@ CORS(app)
 def get_currency():
     
     try:
-        line = f'{request.json['cur_input'].lower()} {request.json['value']} {request.json['cur_output'].lower()}'
+        line = f"{request.json['cur_input'].lower()} {request.json['value']} {request.json['cur_output'].lower()}"
         tree = get_tree(line)
         tokens = get_tokens(line)
 
@@ -49,7 +49,7 @@ def get_currency():
 def get_currency_tree():
  
     try:
-        line = f'{request.json['cur_input'].lower()} {request.json['value']} {request.json['cur_output'].lower()}'
+        line = f"{request.json['cur_input'].lower()} {request.json['value']} {request.json['cur_output'].lower()}"
         tree = get_tree(line)
         treeImage = None
 

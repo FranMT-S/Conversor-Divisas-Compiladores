@@ -61,8 +61,8 @@ def p_currency(p):
     currency : DOLARES
             | EUROS
             | LEMPIRAS
-            | QUETZAL
-            | LIBRASESTERLINA
+            | QUETZALES
+            | LIBRASESTERLINAS
             | BALBOAS
             | YEN
             | RUPIAS

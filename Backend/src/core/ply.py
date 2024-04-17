@@ -18,8 +18,8 @@ t_ignore = ' \t'
 t_DOLARES = r"dolares"
 t_EUROS = r"euros" 
 t_LEMPIRAS = r'lempiras'
-t_QUETZAL = r"quetzales" 
-t_LIBRASESTERLINA = r"librasesterlinas"
+t_QUETZALES = r'quetzales' 
+t_LIBRASESTERLINAS = r'librasesterlinas'
 t_BALBOAS = r"balboas"
 t_YEN = r"yen"
 t_RUPIAS = r"rupias"
@@ -35,6 +35,7 @@ def t_NUMBER(t):
 
 # Error handler for illegal characters
 def t_error(t):
+    print(f'Illegal character in {t.value}. {t.lexer.lexpos}')
     raise Exception(f'Illegal character in {t.value}. {t.lexer.lexpos}')
     # raise Exception(f'Illegal character {t.value[0]!r} {t.lexpos}')
     # t.lexer.skip(1)
@@ -78,6 +79,7 @@ def p_value(p):
 
 
 def p_error(p):
+    print(f'Syntax error at {p.value!r}')
     raise Exception(f'Syntax error at {p.value!r}')
 
 

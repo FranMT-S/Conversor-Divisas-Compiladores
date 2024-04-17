@@ -7,7 +7,7 @@ import re
 
 
 # All tokens must be named in advance.
-tokens = ( 'DOLARES', 'EUROS', 'LEMPIRAS', 'QUETZAL', 'LIBRASESTERLINA', 'BALBOAS',
+tokens = ( 'DOLARES', 'EUROS', 'LEMPIRAS', 'QUETZALES', 'LIBRASESTERLINAS', 'BALBOAS',
            'YEN', 'RUPIAS', 'NUMBER',)
 
 

@@ -29,7 +29,7 @@ t_RUPIAS = r"rupias"
 # A function can be used if there is an associated action.
 # Write the matching regex in the docstring.  
 def t_NUMBER(t):
-    r'\d+'
+    r'\d+(\.\d+)?'
     t.value = float(t.value)
     return t
 

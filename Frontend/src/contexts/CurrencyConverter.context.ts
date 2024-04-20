@@ -10,11 +10,9 @@ const defaultValues: CurrencyConverter = {
   target: { currency: currencyList[1], amount: 0 },
 };
 
-export const CurrencyConverterContext =
-  createContext<CurrencyConverter>(defaultValues);
-export const CurrencyConverterDispatchContext = createContext<
-  Dispatch<CurrencyConverterAction>
->(() => {});
+export const CurrencyConverterContext =  createContext<CurrencyConverter>(defaultValues);
+
+export const CurrencyConverterDispatchContext = createContext<Dispatch<CurrencyConverterAction>>(() => {});
 
 export const useCurrencyConverter = function () {
   return useContext(CurrencyConverterContext);

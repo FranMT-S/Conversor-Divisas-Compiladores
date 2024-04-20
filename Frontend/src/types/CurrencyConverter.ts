@@ -6,7 +6,7 @@ export type Currency = {
 
 export type CurrencyConverterDestination = {
   currency: Currency;
-  amount: number;
+  amount: number | string;
 };
 
 export type CurrencyConverter = {

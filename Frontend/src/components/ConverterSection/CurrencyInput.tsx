@@ -2,18 +2,32 @@ import { FormEvent, InputHTMLAttributes } from "react";
 import { CurrencyConverterDestinationProps } from "../ConverterSection";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  amount: number;
+  amount: number | string;
   changeCurrency: (data: CurrencyConverterDestinationProps) => void;
+  destination:string
 }
 
-function CurrencyInput({ amount, changeCurrency, ...inputProps }: Props) {
+function CurrencyInput({ amount, changeCurrency, destination, ...inputProps }: Props) {
   const onInputHandler = (evt: FormEvent<HTMLInputElement>) => {
-    const inputVal: number = +evt.currentTarget.value;
+    const inputVal: string = evt.currentTarget.value;
 
-    if (isNaN(inputVal) || inputVal < 0) return;
+    if (isNaN(+inputVal) || +inputVal < 0) return;
 
-    changeCurrency({ amount: inputVal });
-  };
+    changeCurrency({ amount: inputVal });
+  };
+
+const formatNumber = (amount:number|string) =>{
+
+    if(amount == "") 
+      return amount
+
+    if(destination == 'target')
+      return amount == -1 ? 0 : Number(amount).toFixed(2)
+    else
+      return amount == -1 ? 0 : amount
+
+} 
+
 
   return (
     <div>
@@ -21,7 +35,7 @@ function CurrencyInput({ amount, changeCurrency, ...inputProps }: Props) {
         placeholder="Ingresa una cantidad..."
         type="text"
         onInput={onInputHandler}
-        value={amount}
+        value={formatNumber(amount)}
         className={`
             block
             mt-2

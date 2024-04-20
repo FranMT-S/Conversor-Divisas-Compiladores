@@ -31,6 +31,7 @@ function DestinationArea({ destination, currencyData, changeCurrency }: Props) {
       />
 
       <CurrencyInput
+        destination={destination}
         amount={currencyData.amount}
         changeCurrency={changeCurrency}
         disabled={destination == "target"}
